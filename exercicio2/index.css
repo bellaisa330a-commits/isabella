@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'Orbitron', sans-serif;
+  color: white;
+
+  background:
+    radial-gradient(circle at 50% 40%, #32106b 0%, transparent 30%),
+    radial-gradient(circle at 20% 80%, #5b0b7a 0%, transparent 25%),
+    linear-gradient(135deg, #050008, #0d0018, #020006);
+
+  overflow: hidden;
+}
+
+/* Efeito de energia no fundo */
+body::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+
+  border-radius: 50%;
+  border: 2px solid rgba(150, 0, 255, 0.2);
+
+  box-shadow:
+    0 0 30px #8a2be2,
+    0 0 80px #5e17eb,
+    inset 0 0 80px #5e17eb;
+
+  animation: energia 5s infinite alternate;
+
+  z-index: -1;
+}
+
+@keyframes energia {
+  from {
+    transform: scale(0.9) rotate(0deg);
+    opacity: 0.4;
+  }
+
+  to {
+    transform: scale(1.15) rotate(180deg);
+    opacity: 0.8;
+  }
+}
+
+/* Título */
+body::after {
+  content: "呪術廻戦";
+  position: absolute;
+  top: 30px;
+
+  font-size: 38px;
+  font-weight: 900;
+  letter-spacing: 8px;
+
+  color: #b56cff;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 15px #8a2be2,
+    0 0 30px #6a00ff;
+
+  opacity: 0.8;
+}
+
+/* Botão */
+#botao {
+  padding: 18px 35px;
+
+  font-family: 'Orbitron', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+
+  color: white;
+  background: rgba(20, 5, 35, 0.9);
+
+  border: 2px solid #8a2be2;
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 0 10px #8a2be2,
+    0 0 25px rgba(138, 43, 226, 0.5);
+
+  transition: 0.3s;
+}
+
+#botao:hover {
+  color: #fff;
+
+  background: #6a00ff;
+
+  transform: scale(1.08);
+
+  box-shadow:
+    0 0 10px #fff,
+    0 0 30px #8a2be2,
+    0 0 60px #6a00ff;
+}
+
+#botao:active {
+  transform: scale(0.95);
+}
+
+/* Data */
+#data {
+  margin-top: 35px;
+
+  min-width: 280px;
+  padding: 20px;
+
+  text-align: center;
+
+  font-size: 22px;
+  font-weight: 700;
+
+  color: #d9b8ff;
+
+  background: rgba(10, 0, 20, 0.8);
+
+  border: 1px solid #8a2be2;
+  border-radius: 10px;
+
+  box-shadow:
+    0 0 15px rgba(138, 43, 226, 0.7),
+    inset 0 0 15px rgba(138, 43, 226, 0.2);
+
+  text-shadow:
+    0 0 8px #8a2be2;
+}
+
+/* Animação quando a data aparece */
+#data:not(:empty) {
+  animation: aparecer 0.5s ease-out;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

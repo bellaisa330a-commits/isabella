@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+
+    font-family: 'Poppins', sans-serif;
+    color: #f4ead8;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(151, 38, 45, 0.35),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 15% 85%,
+            rgba(116, 27, 38, 0.25),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #120c0b 0%,
+            #24100f 45%,
+            #351315 100%
+        );
+
+    overflow: hidden;
+    position: relative;
+}
+
+/* Textura suave no fundo */
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 49%,
+            rgba(226, 190, 130, 0.04) 50%,
+            transparent 51%
+        ),
+        linear-gradient(
+            0deg,
+            transparent 49%,
+            rgba(226, 190, 130, 0.04) 50%,
+            transparent 51%
+        );
+
+    background-size: 90px 90px;
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+/* Elementos decorativos inspirados na cultura coreana */
+body::after {
+    content: "아리랑  ·  ARIRANG  ·  아리랑";
+
+    position: absolute;
+    top: 7%;
+    left: 0;
+    width: 100%;
+
+    text-align: center;
+
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(18px, 3vw, 32px);
+    letter-spacing: 10px;
+
+    color: rgba(221, 183, 119, 0.18);
+
+    pointer-events: none;
+}
+
+/* BOTÃO */
+.botao {
+    position: relative;
+    z-index: 2;
+
+    padding: 17px 42px;
+
+    border: 1px solid #cda96b;
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6f1d27,
+            #8e2935
+        );
+
+    color: #f8ead1;
+
+    font-family: 'Noto Serif KR', serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.45),
+        0 0 25px rgba(177, 52, 59, 0.18);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+}
+
+/* Pequeno detalhe dourado */
+.botao::before {
+    content: "✦";
+
+    position: absolute;
+    left: 14px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #d8b878;
+    font-size: 13px;
+}
+
+.botao::after {
+    content: "✦";
+
+    position: absolute;
+    right: 14px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #d8b878;
+    font-size: 13px;
+}
+
+.botao:hover {
+    transform: translateY(-4px);
+
+    background:
+        linear-gradient(
+            135deg,
+            #852631,
+            #a43743
+        );
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.55),
+        0 0 35px rgba(190, 58, 67, 0.3);
+}
+
+.botao:active {
+    transform: translateY(0) scale(0.97);
+}
+
+/* ÁREA DA RESPOSTA */
+.paragrafo {
+    position: relative;
+    z-index: 2;
+
+    width: min(520px, 85%);
+    min-height: 90px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px 35px;
+
+    border: 1px solid rgba(205, 169, 107, 0.45);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.055),
+            rgba(255, 255, 255, 0.015)
+        );
+
+    backdrop-filter: blur(10px);
+
+    color: #f1dfc1;
+
+    font-family: 'Noto Serif KR', serif;
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-align: center;
+    line-height: 1.7;
+
+    box-shadow:
+        inset 0 0 30px rgba(255, 255, 255, 0.02),
+        0 15px 45px rgba(0, 0, 0, 0.35);
+
+    transition: all 0.4s ease;
+}
+
+/* Cantos decorativos */
+.paragrafo::before {
+    content: "「";
+
+    position: absolute;
+    left: 12px;
+    top: 5px;
+
+    color: #b88c50;
+    font-family: serif;
+    font-size: 38px;
+    opacity: 0.7;
+}
+
+.paragrafo::after {
+    content: "」";
+
+    position: absolute;
+    right: 12px;
+    bottom: 0;
+
+    color: #b88c50;
+    font-family: serif;
+    font-size: 38px;
+    opacity: 0.7;
+}
+
+/* Quando o JavaScript colocar uma resposta */
+.paragrafo:not(:empty) {
+    animation: aparecer 0.8s ease forwards;
+}
+
+/* Pequenas partículas */
+@keyframes aparecer {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Linhas decorativas laterais */
+body {
+    border: 12px solid transparent;
+    border-image:
+        linear-gradient(
+            90deg,
+            #24100f,
+            #9c6d3d,
+            #24100f
+        ) 1;
+}
+
+/* CELULAR */
+@media (max-width: 600px) {
+
+    body {
+        gap: 25px;
+        border-width: 6px;
+    }
+
+    body::after {
+        font-size: 18px;
+        letter-spacing: 5px;
+    }
+
+    .botao {
+        padding: 15px 32px;
+        font-size: 15px;
+        letter-spacing: 2px;
+    }
+
+    .paragrafo {
+        width: 85%;
+        min-height: 80px;
+        padding: 20px 25px;
+
+        font-size: 16px;
+    }
+}

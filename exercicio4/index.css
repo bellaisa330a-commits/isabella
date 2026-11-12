@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    background-color: #eef3f8;
+    background-image:
+        linear-gradient(#d5e0ec 1px, transparent 1px),
+        linear-gradient(90deg, #d5e0ec 1px, transparent 1px);
+
+    background-size: 30px 30px;
+
+    color: #172b4d;
+}
+
+/* Título matemático */
+body::before {
+    content: "∑  π  √  x²  ÷  ∞";
+    position: absolute;
+    top: 60px;
+
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 18px;
+
+    color: #315b8c;
+    opacity: 0.35;
+}
+
+/* Caixa principal */
+body {
+    gap: 15px;
+}
+
+/* Campo de número */
+input {
+    width: 320px;
+    padding: 16px 18px;
+
+    border: 2px solid #315b8c;
+    border-radius: 8px;
+
+    background: white;
+    color: #172b4d;
+
+    font-size: 18px;
+    text-align: center;
+
+    outline: none;
+
+    box-shadow: 0 4px 12px rgba(23, 43, 77, 0.12);
+
+    transition: 0.3s;
+}
+
+input::placeholder {
+    color: #8193a8;
+}
+
+input:focus {
+    border-color: #1769aa;
+
+    box-shadow:
+        0 0 0 4px rgba(23, 105, 170, 0.15),
+        0 5px 15px rgba(23, 43, 77, 0.15);
+}
+
+/* Remove setinhas do input */
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+/* Botão */
+button {
+    width: 320px;
+    padding: 15px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #1769aa;
+    color: white;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 0 #0d4775;
+
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #1d7bc5;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #0d4775;
+}
+
+/* Resultado */
+#resultado {
+    width: 320px;
+    min-height: 65px;
+
+    margin-top: 10px;
+    padding: 18px;
+
+    background: white;
+
+    border-left: 6px solid #1769aa;
+    border-radius: 8px;
+
+    color: #172b4d;
+
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 5px 15px rgba(23, 43, 77, 0.12);
+}
+
+/* Símbolo matemático no resultado */
+#resultado::before {
+    content: "∴";
+    margin-right: 12px;
+
+    color: #1769aa;
+    font-size: 28px;
+}
+
+/* Responsividade */
+@media (max-width: 500px) {
+    input,
+    button,
+    #resultado {
+        width: 85%;
+    }
+
+    body::before {
+        font-size: 20px;
+        letter-spacing: 8px;
+    }
+}

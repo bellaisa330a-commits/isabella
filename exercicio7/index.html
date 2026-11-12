@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calcular Notas</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Calculadora de Média</h1>
+
+      <p>Digite suas duas notas:</p>
+
+      <input
+        type="number"
+        id="nota1"
+        placeholder="Primeira nota"
+        min="0"
+        max="10"
+      />
+
+      <input
+        type="number"
+        id="nota2"
+        placeholder="Segunda nota"
+        min="0"
+        max="10"
+      />
+
+      <button onclick="mostrarMedia()">Calcular Média</button>
+
+      <p id="resultado"></p>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
